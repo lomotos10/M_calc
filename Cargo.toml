@@ -1,0 +1,9 @@
+[package]
+name = "m_calc"
+version = "0.1.0"
+authors = ["sungsoo.han"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
