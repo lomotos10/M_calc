@@ -1,4 +1,4 @@
-/// Members that end with `percent` and `ignore_guard` are measured in units of %.  
+/// Members that end with `percent` are measured in units of %.  
 /// ex) dmg_percent = 50 == DMG% = 50%  
 /// Listed in X121:Y135 of Spec Simulator 0.9.4  
 /// 메용 포함  
@@ -16,7 +16,7 @@ struct Stats {
     final_dmg_percent: f64,                   // 최종뎀
     ignore_guard_percent: f64,                // 방무
     ignore_elemental_resistance_percent: f64, // 속성내성무시
-    crit_percent: f64,                        // 크확
+    crit_chance_percent: f64,                        // 크확
     crit_dmg_percent: f64,                    // 크뎀
     weapon_constant: f64,                     // 무기상수
     class_constant: f64,                      // 직업상수
@@ -50,7 +50,7 @@ impl Stats {
             final_dmg_percent: 30 as f64,
             ignore_guard_percent: 78.73660272,
             ignore_elemental_resistance_percent: 5 as f64,
-            crit_percent: 70 as f64,
+            crit_chance_percent: 70 as f64,
             crit_dmg_percent: 65 as f64,
             weapon_constant: 1.2,
             class_constant: 1.0,
