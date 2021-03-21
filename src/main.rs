@@ -1,4 +1,5 @@
 use ordered_float::OrderedFloat;
+use itertools::Itertools;
 
 /// Members that end with `percent` are measured in units of %.  
 /// ex) dmg_percent = 50 == DMG% = 50%  
@@ -120,6 +121,8 @@ impl Stats {
 struct CalculatorInfo {
     target_boss_guard_percent: usize,                // 보스 방어율
     target_boss_elemental_resistance_percent: usize, // 보스 속성내성
+
+    free_link_skill_spaces: usize, // 링크스킬 칸수
 }
 
 impl CalculatorInfo {
@@ -127,6 +130,7 @@ impl CalculatorInfo {
         Self {
             target_boss_guard_percent: 300,
             target_boss_elemental_resistance_percent: 50,
+            free_link_skill_spaces: 10,
         }
     }
 
@@ -269,11 +273,29 @@ fn add_ignore_guard_percents(percents: Vec<f64>) -> f64 {
     (1.0 - f) * 100.0
 }
 
+struct HyperStats {
+    main_stat_level: usize,
+    sub_stat_level: usize,
+    crit_rate_level: usize, 
+    crit_dmg_level: usize,
+    ignore_guard_level: usize,
+    dmg_level: usize,
+    boss_dmg_level: usize,
+    atk_level: usize
+}
+
+fn hyper_stats_combinations(info: &CalculatorInfo) -> Vec<HyperStats> {
+    todo!()
+}
+
 fn main() {
     let stats = Stats::init();
     let info = CalculatorInfo::init();
     // println!("{}", info.boss_line_dmg(stats) as u64);
-    println!("{:#?}", find_optimal_links(10, &stats, info));
+    // println!("{:#?}", find_optimal_links(10, &stats, info));
+    let links = link_skill_list();
+    let link_combinations = links.iter().combinations(info.free_link_skill_spaces);
+    let hyper_stats_combinations = hyper_stats_combinations(&info);
 }
 
 #[cfg(test)]
