@@ -1,5 +1,7 @@
 # M_calc
 
+2021/08/09 edit: This project is abandoned.
+
 TODO:
 - [ ] 크리인
 - [ ] 제논
